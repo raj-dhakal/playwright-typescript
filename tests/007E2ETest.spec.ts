@@ -15,13 +15,20 @@ test('End-to-End test cases', async({page}) => {
             break; 
         }
     }
-
     await page.locator(`[routerlink = '/dashboard/cart']`).click();
     await page.locator(`.cartSection h3`).first().waitFor();
     await page.locator(`[type = 'button']`).last().click();
-    await page.locator(`[placeholder = 'Select Country']`).pressSequentially(`Nep`);
+    await page.locator(`[placeholder = 'Select Country']`).pressSequentially(`Ind`);
 
+    const listOfCountries = page.locator(`[class='ta-results list-group ng-star-inserted'] span`);
+    const count = await listOfCountries.allTextContents();
+    console.log(count);
 
- 
+    for(let i = 0; i < count.length; i++){
+        if(await listOfCountries.nth(i).textContent() === `India`){
+            await listOfCountries.nth(i).click();
+            break;
+        }
+    }
     await page.pause();
 });
