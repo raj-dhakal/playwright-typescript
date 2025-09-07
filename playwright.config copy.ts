@@ -17,14 +17,15 @@ export default defineConfig({
   expect: {
     timeout: 20 * 1000,
   },
-  use: {
-    browserName: 'chromium',
-    headless : false,
-    screenshot : 'off',
-    video: 'retain-on-failure',
-    ignoreHTTPSErrors : true,
-    permissions: ['geolocation'],
-    trace: 'retain-on-failure',  //help debugg
-    //viewport: {width:720, height: 720}, //diemension of the screen
-  },
+
+  projects: [
+    {
+      name : 'Chrome Executiona',
+       use: {
+        browserName: 'chromium',
+        headless : false,
+        screenshot : 'off',
+        trace: 'retain-on-failure',  //help debugg
+  }}]
+ 
 });
