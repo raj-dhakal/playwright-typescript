@@ -22,8 +22,6 @@ export default defineConfig({
     headless : false,
     screenshot : 'off',
     video: 'retain-on-failure',
-    ignoreHTTPSErrors : true,
-    permissions: ['geolocation'],
     trace: 'retain-on-failure',  //help debugg
     //viewport: {width:720, height: 720}, //diemension of the screen
   },
